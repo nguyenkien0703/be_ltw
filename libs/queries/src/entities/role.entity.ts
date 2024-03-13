@@ -7,7 +7,6 @@ import {
     PrimaryGeneratedColumn,
     UpdateDateColumn,
 } from "typeorm"
-import { UserRole } from "@app/queries/entities/user-role.entity"
 
 @Entity("roles")
 export class Role extends BaseEntity {
@@ -36,6 +35,4 @@ export class Role extends BaseEntity {
     @UpdateDateColumn({ name: "updated_at" })
     updatedAt: Date
 
-    @OneToMany(() => UserRole, (userRole) => userRole.role)
-    userRole: UserRole[]
 }

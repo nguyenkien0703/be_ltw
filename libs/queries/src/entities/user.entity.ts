@@ -7,9 +7,8 @@ import {
     OneToMany,
     PrimaryGeneratedColumn,
 } from "typeorm"
-import { RoleEnum, UserStatusEnum } from "@app/shares/constants"
-import { UserRole } from "@app/queries/entities/user-role.entity"
-import { UserStatus } from "@app/queries/entities/user-status.entity"
+import { RoleEnum } from "@app/shares/constants"
+import { Role } from "./role.entity"
 
 @Entity("users")
 export class User extends BaseEntity {
@@ -37,7 +36,7 @@ export class User extends BaseEntity {
     name: string
 
     @Column({
-        name: "note",
+        name: "address",
         type: "text",
         nullable: true,
     })
@@ -45,7 +44,7 @@ export class User extends BaseEntity {
 
     @Column({
         nullable: true,
-        name: "phone_number",
+        name: "phone",
         type: "varchar",
         length: 255,
     })
@@ -55,23 +54,26 @@ export class User extends BaseEntity {
         nullable: true,
         type: "varchar",
         length: 255,
+        name: 'defaultHash'
     })
     defaultAvatarHashColor: string
 
     @Column({ name: "avartar", type: "varchar", length: 255, nullable: true })
     avatar: string
 
-    role: RoleEnum
 
-    @Column({ nullable: false, name: "status_id", type: "integer", width: 11 })
+    @Column({ nullable: false, name: "status", type: "integer", width: 11 })
     statusId: number
 
-    @ManyToOne(() => UserStatus)
-    @JoinColumn({
-        name: "status_id",
-    })
-    userStatus: UserStatus
 
-    @OneToMany(() => UserRole, (userRole) => userRole.user)
-    userRole: UserRole[]
+
+    @Column({ nullable: false, name: "role_id", type: "integer", width: 11 })
+    roleId: number
+
+    @ManyToOne(()=> Role)
+    @JoinColumn({
+        name: "role_id",        
+    })
+    role: Role
+
 }

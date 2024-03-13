@@ -53,7 +53,7 @@ export class Laptop extends BaseEntity {
     os: string
 
     @Column({
-        name: "sorage",
+        name: "storage",
         type: "varchar",
         length: 255,
         nullable: false,
@@ -69,7 +69,7 @@ export class Laptop extends BaseEntity {
     graphicCard: string
 
     @Column({
-        name: "note",
+        name: "description",
         type: "text",
         nullable: true,
     })

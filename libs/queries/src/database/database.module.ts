@@ -10,8 +10,6 @@ import {
     OrderDetail,
     Role,
     User,
-    UserRole,
-    UserStatus,
 } from "@app/queries/entities"
 
 @Module({
@@ -35,8 +33,6 @@ import {
                         OrderDetail,
                         Role,
                         User,
-                        UserRole,
-                        UserStatus,
                     ],
                     timezone: "Z",
                     synchronize: configService.get("database.synchronize"),
