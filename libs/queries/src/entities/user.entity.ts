@@ -4,10 +4,8 @@ import {
     Entity,
     JoinColumn,
     ManyToOne,
-    OneToMany,
     PrimaryGeneratedColumn,
 } from "typeorm"
-import { RoleEnum } from "@app/shares/constants"
 import { Role } from "./role.entity"
 
 @Entity("users")
@@ -54,26 +52,22 @@ export class User extends BaseEntity {
         nullable: true,
         type: "varchar",
         length: 255,
-        name: 'defaultHash'
+        name: "defaultHash",
     })
     defaultAvatarHashColor: string
 
     @Column({ name: "avartar", type: "varchar", length: 255, nullable: true })
     avatar: string
 
-
     @Column({ nullable: false, name: "status", type: "integer", width: 11 })
     statusId: number
-
-
 
     @Column({ nullable: false, name: "role_id", type: "integer", width: 11 })
     roleId: number
 
-    @ManyToOne(()=> Role)
+    @ManyToOne(() => Role)
     @JoinColumn({
-        name: "role_id",        
+        name: "role_id",
     })
     role: Role
-
 }

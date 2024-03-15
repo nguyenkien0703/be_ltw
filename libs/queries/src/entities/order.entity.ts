@@ -23,10 +23,8 @@ export class Order extends BaseEntity {
     })
     address: string
 
-    
     @Column({ nullable: false, name: "status", type: "integer", width: 11 })
-    statusId: number
-
+    status: number
 
     @Column({
         nullable: true,
@@ -35,7 +33,7 @@ export class Order extends BaseEntity {
         length: 255,
     })
     phone: string
-    
+
     @Column({
         nullable: true,
         name: "name",
@@ -43,9 +41,6 @@ export class Order extends BaseEntity {
         length: 255,
     })
     name: string
-
-
-
 
     @ManyToOne(() => User)
     @JoinColumn({

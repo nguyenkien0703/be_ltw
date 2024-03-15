@@ -29,6 +29,9 @@ export class OrderDetail extends BaseEntity {
     @Column({ nullable: false, name: "user_id", type: "integer", width: 11 })
     userId: number
 
+    @Column({ nullable: false, name: "quantity", type: "integer", width: 11 })
+    quantity: number
+
     @ManyToOne(() => User)
     @JoinColumn({
         name: "user_id",

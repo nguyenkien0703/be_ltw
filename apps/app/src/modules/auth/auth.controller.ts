@@ -6,7 +6,6 @@
 // export class AuthController {
 //   constructor(private readonly authService: AuthService) {}
 
-
 //     //LoginUser By Email-Password
 //     @Post('login-by-password')
 //     @HttpCode(HttpStatus.OK)
@@ -17,7 +16,6 @@
 //         return loginData
 //     }
 
-
 //     @Post('/user/refresh-token')
 //     @HttpCode(HttpStatus.CREATED)
 //     async generateNewAccessJWT(@Body() refreshTokenDto: RefreshTokenDto) {
@@ -26,8 +24,5 @@
 //         )
 //         return newAccessToken
 //     }
-
- 
-
 
 // }

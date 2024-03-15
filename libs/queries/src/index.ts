@@ -1,2 +1,2 @@
-export * from "./queries.module"
-export * from "./queries.service"
+export * from "./entities"
+export * from "./repositories"

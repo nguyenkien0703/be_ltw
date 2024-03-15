@@ -17,7 +17,7 @@ export class Image extends BaseEntity {
         type: "varchar",
         length: 255,
         nullable: true,
-        unique: true,
+        unique: false,
     })
     urlImage: string
 
