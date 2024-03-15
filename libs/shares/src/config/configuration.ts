@@ -1,3 +1,5 @@
+import process from "process"
+
 interface Configuration {
     database: {
         host: string
@@ -16,6 +18,7 @@ interface Configuration {
         refreshJwtSecretKey: string
         accessTokenExpireInSec: number
         refreshTokenExpireInSec: number
+        secretUserPasswordKey: string
     }
 }
 export default (): Configuration => ({
@@ -42,5 +45,6 @@ export default (): Configuration => ({
             process.env.REFRESH_TOKEN_EXPIRE_IN_SEC,
             10,
         ),
+        secretUserPasswordKey: process.env.PASSWORD_SECRET_KEY_USER,
     },
 })

@@ -28,6 +28,6 @@ import { Seeder } from "@app/queries/seeds/seeder"
         UserSeederModule,
     ],
     providers: [Seeder],
-    exports: [Seeder]
+    exports: [Seeder],
 })
 export class SeederModule {}

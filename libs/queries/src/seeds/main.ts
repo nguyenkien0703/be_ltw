@@ -10,9 +10,9 @@ async function bootstrap() {
 
 bootstrap()
     .then(() => {
-        process.exit(0);
+        process.exit(0)
     })
     .catch((error) => {
-        console.error('Error occurred:', error); // In ra lỗi ở đây
-        process.exit(1);
-    });
+        console.error("Error occurred:", error) // In ra lỗi ở đây
+        process.exit(1)
+    })
