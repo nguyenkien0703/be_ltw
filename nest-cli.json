@@ -5,7 +5,11 @@
   "compilerOptions": {
     "deleteOutDir": true,
     "webpack": true,
-    "tsConfigPath": "apps/app/tsconfig.app.json"
+    "tsConfigPath": "apps/app/tsconfig.app.json",
+    "assets": [
+      "modules/emails/templates/**"
+    ],
+    "watchAssets": true
   },
   "monorepo": true,
   "root": "apps/app",

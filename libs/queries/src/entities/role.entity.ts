@@ -7,6 +7,7 @@ import {
     PrimaryGeneratedColumn,
     UpdateDateColumn,
 } from "typeorm"
+import { RoleEnum } from "@app/shares"
 
 @Entity("roles")
 export class Role extends BaseEntity {
@@ -15,11 +16,11 @@ export class Role extends BaseEntity {
 
     @Column({
         name: "role",
-        type: "varchar",
-        length: 255,
+        type: "enum",
+        enum: RoleEnum,
         nullable: false,
     })
-    roleName: string
+    roleName: RoleEnum
 
     @Column({
         name: "description",

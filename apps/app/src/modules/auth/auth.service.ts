@@ -1,5 +1,9 @@
 import { HttpException, HttpStatus, Injectable } from "@nestjs/common"
-import { LoginUserByPassword, RefreshTokenDto } from "@app/queries/dtos"
+import {
+    LoginUserByPassword,
+    RefreshTokenDto,
+    SignUpUserDto,
+} from "@app/queries/dtos"
 import { GenerateAccessJWTData, LoginResponseData } from "./auth.interface"
 import { UserService } from "../users/user.service"
 import { httpErrors } from "@app/shares/exeption-filter"
@@ -58,7 +62,6 @@ export class AuthService {
                 email: user.email,
                 name: user.name,
                 address: user.address,
-                avatar: user.avatar,
                 role: user.role.roleName,
             }
 
@@ -105,5 +108,10 @@ export class AuthService {
         }
         const accessToken = generateAccessJWT(payload)
         return accessToken
+    }
+
+    async signUpUser(signUpUserDto: SignUpUserDto) {
+        const signUpedUser = await this.userService.signUpUser(signUpUserDto)
+        return signUpedUser
     }
 }

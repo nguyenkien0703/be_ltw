@@ -1,3 +1,2 @@
-export * from "./gender"
-export * from "./role"
-export * from "./user-status"
+export * from "./gender.const"
+export * from "./role.const"

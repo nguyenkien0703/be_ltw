@@ -24,7 +24,6 @@ export class ResponseTransformInterceptor<T>
         return next.handle().pipe(
             map((_data) => {
                 const data = instanceToPlain(_data)
-                console.log(data)
                 const req = context.switchToHttp().getRequest()
                 const metadata = {
                     ...data.metadata,

@@ -1,1 +1,5 @@
 export * from "./auth.dto"
+export * from "./base.dto"
+export * from "./laptop.dto"
+export * from "./comment.dto"
+export * from "./evalution.dto"

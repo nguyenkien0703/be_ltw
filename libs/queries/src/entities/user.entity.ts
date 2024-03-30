@@ -48,20 +48,6 @@ export class User extends BaseEntity {
     })
     phone: string
 
-    @Column({
-        nullable: true,
-        type: "varchar",
-        length: 255,
-        name: "defaultHash",
-    })
-    defaultAvatarHashColor: string
-
-    @Column({ name: "avartar", type: "varchar", length: 255, nullable: true })
-    avatar: string
-
-    @Column({ nullable: false, name: "status", type: "integer", width: 11 })
-    statusId: number
-
     @Column({ nullable: false, name: "role_id", type: "integer", width: 11 })
     roleId: number
 

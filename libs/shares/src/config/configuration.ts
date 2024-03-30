@@ -1,7 +1,7 @@
-import * as dotenv from 'dotenv'
-import * as process from 'process'
+import * as dotenv from "dotenv"
+import * as process from "process"
+import { isBoolean } from "class-validator"
 dotenv.config()
-
 
 interface Configuration {
     database: {
@@ -22,6 +22,16 @@ interface Configuration {
         accessTokenExpireInSec: number
         refreshTokenExpireInSec: number
         secretUserPasswordKey: string
+    }
+    email: {
+        host: string
+        // port: number;
+        secure: boolean
+        auth: {
+            user: string
+            password: string
+        }
+        cc_emails: Array<string>
     }
 }
 export default (): Configuration => ({
@@ -49,5 +59,15 @@ export default (): Configuration => ({
             10,
         ),
         secretUserPasswordKey: process.env.PASSWORD_SECRET_KEY_USER,
+    },
+    email: {
+        host: process.env.EMAIL_HOST,
+        // port: parseInt(process.env.EMAIL_PORT,10),
+        secure: isBoolean(process.env.EMAIL_SECURE),
+        auth: {
+            user: process.env.EMAIL_USER,
+            password: process.env.EMAIL_PASSWORD,
+        },
+        cc_emails: (process.env.CC_EMAILS || "").split(","),
     },
 })

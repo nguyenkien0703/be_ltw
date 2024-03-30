@@ -14,3 +14,8 @@ export const verifyRefreshJWT = async (token, options = {}) => {
     const key = configuration().api.refreshJwtSecretKey
     return await jwt.verify(token, key, options)
 }
+
+export const verifyAccessJWT = async (token, options = {}) => {
+    const key = configuration().api.accessJwtSecretKey
+    return await jwt.verify(token, key, options)
+}

@@ -7,6 +7,7 @@ import {
     PrimaryGeneratedColumn,
 } from "typeorm"
 import { User } from "@app/queries/entities/user.entity"
+import { StatusOrder } from "@app/shares/constants/status-order.const"
 
 @Entity("orders")
 export class Order extends BaseEntity {
@@ -23,8 +24,13 @@ export class Order extends BaseEntity {
     })
     address: string
 
-    @Column({ nullable: false, name: "status", type: "integer", width: 11 })
-    status: number
+    @Column({
+        nullable: false,
+        type: "enum",
+        enum: StatusOrder,
+        default: StatusOrder.PENDING,
+    })
+    status: StatusOrder
 
     @Column({
         nullable: true,
