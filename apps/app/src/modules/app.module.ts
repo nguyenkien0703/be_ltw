@@ -4,6 +4,7 @@ import { AppService } from "./app.service"
 import { ConfigModule } from "@nestjs/config"
 import configuration from "@app/shares/config/configuration"
 import { DatabaseModule } from "@app/queries/database/database.module"
+import { GlobalRepository } from "./global-repositories/globla-repository.module"
 
 @Module({
     imports: [
@@ -12,6 +13,7 @@ import { DatabaseModule } from "@app/queries/database/database.module"
             load: [configuration],
         }),
         DatabaseModule,
+        GlobalRepository
     ],
     controllers: [AppController],
     providers: [AppService],

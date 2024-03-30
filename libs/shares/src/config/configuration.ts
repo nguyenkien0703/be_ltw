@@ -1,4 +1,7 @@
-import process from "process"
+import * as dotenv from 'dotenv'
+import * as process from 'process'
+dotenv.config()
+
 
 interface Configuration {
     database: {
@@ -27,7 +30,7 @@ export default (): Configuration => ({
         port: parseInt(process.env.DB_PORT, 10) || 3306,
         name: process.env.DB_NAME || "laptop",
         user: process.env.DB_USER || "root",
-        pass: process.env.DB_PASS || "10703223",
+        pass: process.env.DB_PASS || "19091978chinh",
         type: process.env.DB_TYPE || "mysql",
         logging: process.env.DB_LOGGING === "true",
         synchronize: process.env.DB_SYNC === "true",
