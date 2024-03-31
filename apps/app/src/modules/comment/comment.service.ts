@@ -3,6 +3,7 @@ import { Comment, CommentRepository } from "@app/queries"
 import { CreateCommentDto, UpdateCommentDto } from "@app/queries/dtos"
 import { httpErrors } from "@app/shares/exeption-filter"
 import { UserService } from "../users/user.service"
+import { Pagination } from "nestjs-typeorm-paginate"
 
 @Injectable()
 export class CommentService {
@@ -11,6 +12,12 @@ export class CommentService {
 
         private readonly userService: UserService,
     ) {}
+
+
+    async getAllCommentLaptopByLaptopId(laptopId: number): Promise<Pagination<Comment>> {
+        const comments = await this.commentRepository.getAllCommentLaptopByLaptopId(laptopId)
+        return comments
+    }
 
     async createComment(
         createCommentDto: CreateCommentDto,

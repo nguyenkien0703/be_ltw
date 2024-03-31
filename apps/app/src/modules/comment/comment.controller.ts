@@ -2,16 +2,18 @@ import {
     Body,
     Controller,
     Delete,
+    Get,
     HttpCode,
     HttpStatus,
     Param,
     Patch,
     Post,
+    Query,
     UseGuards,
 } from "@nestjs/common"
-import { ApiTags } from "@nestjs/swagger"
+import { ApiBearerAuth, ApiTags } from "@nestjs/swagger"
 import { CommentService } from "./comment.service"
-import { CreateCommentDto, UpdateCommentDto } from "@app/queries/dtos"
+import { CreateCommentDto, GetAllLaptopDto, UpdateCommentDto } from "@app/queries/dtos"
 import { JwtAuthGuard } from "@app/shares/guards/jwt-auth.guard"
 import { RoleGuard } from "@app/shares/guards/role.guard"
 import { RoleEnum, Roles } from "@app/shares"
@@ -22,6 +24,16 @@ import { UserScope } from "@app/shares/decorators/user.decorator"
 @ApiTags("comments")
 export class CommentController {
     constructor(private readonly commentService: CommentService) {}
+
+
+    @Get("/:laptopId")
+    @HttpCode(HttpStatus.OK)
+    @ApiBearerAuth()
+    async getAllCommentLaptopByLaptopId(@Param('laptopId') laptopId: number) {
+        const comments = await this.commentService.getAllCommentLaptopByLaptopId(laptopId)
+        return comments
+    }
+
 
     @Post("")
     @HttpCode(HttpStatus.OK)
