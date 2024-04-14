@@ -3,7 +3,6 @@ import { TypeOrmExModule } from "@app/shares"
 import {
     CommentRepository,
     EvalutionRepository,
-    ImageRepository,
     LaptopRepository,
     OrderDetailRepository,
     OrderRepository,
@@ -14,7 +13,6 @@ import {
 const commonRepositories = [
     CommentRepository,
     EvalutionRepository,
-    ImageRepository,
     LaptopRepository,
     OrderRepository,
     OrderDetailRepository,

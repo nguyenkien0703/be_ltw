@@ -4,7 +4,6 @@ import { ConfigModule, ConfigService } from "@nestjs/config"
 import {
     Comment,
     Evalution,
-    Image,
     Laptop,
     Order,
     OrderDetail,
@@ -27,7 +26,6 @@ import {
                     entities: [
                         Comment,
                         Evalution,
-                        Image,
                         Laptop,
                         Order,
                         OrderDetail,

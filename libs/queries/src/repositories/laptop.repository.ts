@@ -17,6 +17,7 @@ export class LaptopRepository extends Repository<Laptop> {
             "laptops.name",
             "laptops.price",
             "laptops.brand",
+            "laptops.image",
         ])
         if (brandQuery) {
             queryBuider.andWhere("laptops.brand like :brand", {
@@ -25,11 +26,13 @@ export class LaptopRepository extends Repository<Laptop> {
         }
         if (searchQuery) {
             queryBuider.andWhere("laptops.name like :searchQuery", {
-                searchQuery: searchQuery,
+                searchQuery: `${searchQuery}`,
             })
         }
         return paginate(queryBuider, { page, limit })
     }
+
+
 
     async getLaptopById(laptopId: number): Promise<Laptop> {
         const queryBuilder = this.createQueryBuilder("laptops")

@@ -1,7 +1,6 @@
 import { Injectable, Logger } from "@nestjs/common"
 import { CommentSeederService } from "@app/queries/seeds/comment/comment.seeder.service"
 import { EvalutionSeederService } from "@app/queries/seeds/evalution/evalution.seeder.service"
-import { ImageSeederService } from "@app/queries/seeds/image/image.seeder.service"
 import { LaptopSeederService } from "@app/queries/seeds/laptop/laptop.seeder.service"
 import { OrderSeederService } from "@app/queries/seeds/order/order.seeder.service"
 import { OrderDetailSeederService } from "@app/queries/seeds/order-detail/order-detail.seeder.service"
@@ -13,7 +12,6 @@ export class Seeder {
     constructor(
         private readonly commentSeederService: CommentSeederService,
         private readonly evalutionSeederService: EvalutionSeederService,
-        private readonly imageSeederService: ImageSeederService,
         private readonly laptopSeederService: LaptopSeederService,
         private readonly orderSeederService: OrderSeederService,
         private readonly orderDetailSeederService: OrderDetailSeederService,
@@ -27,7 +25,6 @@ export class Seeder {
         await this.seedUser()
         await this.seedEvalution()
         await this.seedComment()
-        await this.seedImage()
         await this.seedOrder()
         await this.seedOrderDetail()
         Logger.log("END_SEEDING_DATA")
@@ -39,9 +36,7 @@ export class Seeder {
     async seedEvalution() {
         await this.evalutionSeederService.seedEvalution()
     }
-    async seedImage() {
-        await this.imageSeederService.seedImage()
-    }
+ 
     async seedLaptop() {
         await this.laptopSeederService.seedLaptop()
     }

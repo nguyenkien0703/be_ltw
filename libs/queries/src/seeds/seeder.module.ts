@@ -4,7 +4,6 @@ import configuration from "@app/shares/config/configuration"
 import { DatabaseModule } from "@app/queries/database/database.module"
 import { CommentSeederModule } from "@app/queries/seeds/comment/comment.seeder.module"
 import { EvalutionSeederModule } from "@app/queries/seeds/evalution/evalution.seeder.module"
-import { ImageSeederModule } from "@app/queries/seeds/image/image.seeder.module"
 import { LaptopSeederModule } from "@app/queries/seeds/laptop/laptop.seeder.module"
 import { OrderSeederModule } from "@app/queries/seeds/order/order.seeder.module"
 import { OrderDetailSeederModule } from "@app/queries/seeds/order-detail/order-detail.seeder.module"
@@ -20,7 +19,6 @@ import { Seeder } from "@app/queries/seeds/seeder"
         DatabaseModule,
         CommentSeederModule,
         EvalutionSeederModule,
-        ImageSeederModule,
         LaptopSeederModule,
         OrderSeederModule,
         OrderDetailSeederModule,

@@ -1,6 +1,5 @@
 export * from "./comment.entity"
 export * from "./evalution.entity"
-export * from "./image.entity"
 export * from "./laptop.entity"
 export * from "./order-detail.entity"
 export * from "./order.entity"

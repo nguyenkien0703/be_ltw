@@ -105,6 +105,14 @@ export class Laptop extends BaseEntity {
     })
     brand: string
 
+    @Column({
+        name: "image",
+        type: "varchar",
+        length: 255,
+        nullable: false,
+    })
+    image: string
+
     @Column({ nullable: false, name: "quantity", type: "integer", width: 11 })
     quantity: number
 }
