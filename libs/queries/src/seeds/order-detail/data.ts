@@ -1,5 +1,5 @@
-import { PartialType } from "@nestjs/swagger"
-import { OrderDetail } from "@app/queries/entities"
+import { PartialType } from '@nestjs/swagger'
+import { OrderDetail } from '@app/queries/entities'
 
 export class InsertOrderDetailDto extends PartialType(OrderDetail) {}
 

@@ -1,4 +1,4 @@
-import { User } from "@app/queries/entities/user.entity"
+import { User } from '@app/queries/entities/user.entity'
 
 export interface LoginResponseData {
     accessToken: string

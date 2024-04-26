@@ -5,20 +5,20 @@ import {
     HttpStatus,
     Post,
     UseGuards,
-} from "@nestjs/common"
-import { ApiBearerAuth, ApiTags } from "@nestjs/swagger"
-import { OrderService } from "./order.service"
-import { JwtAuthGuard } from "@app/shares/guards/jwt-auth.guard"
-import { CreateOrderDto } from "@app/queries/dtos/order.dto"
-import { UserScope } from "@app/shares/decorators/user.decorator"
-import { User } from "@app/queries"
+} from '@nestjs/common'
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger'
+import { OrderService } from './order.service'
+import { JwtAuthGuard } from '@app/shares/guards/jwt-auth.guard'
+import { CreateOrderDto } from '@app/queries/dtos/order.dto'
+import { UserScope } from '@app/shares/decorators/user.decorator'
+import { User } from '@app/queries'
 
-@Controller("orders")
-@ApiTags("orders")
+@Controller('orders')
+@ApiTags('orders')
 export class OrderController {
     constructor(private readonly orderService: OrderService) {}
 
-    @Post("")
+    @Post('')
     @ApiBearerAuth()
     @UseGuards(JwtAuthGuard)
     @HttpCode(HttpStatus.CREATED)

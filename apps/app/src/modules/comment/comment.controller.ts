@@ -8,37 +8,35 @@ import {
     Param,
     Patch,
     Post,
-    Query,
     UseGuards,
-} from "@nestjs/common"
-import { ApiBearerAuth, ApiTags } from "@nestjs/swagger"
-import { CommentService } from "./comment.service"
-import { CreateCommentDto, GetAllLaptopDto, UpdateCommentDto } from "@app/queries/dtos"
-import { JwtAuthGuard } from "@app/shares/guards/jwt-auth.guard"
-import { RoleGuard } from "@app/shares/guards/role.guard"
-import { RoleEnum, Roles } from "@app/shares"
-import { User } from "@app/queries"
-import { UserScope } from "@app/shares/decorators/user.decorator"
+} from '@nestjs/common'
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger'
+import { CommentService } from './comment.service'
+import { CreateCommentDto, UpdateCommentDto } from '@app/queries/dtos'
+import { JwtAuthGuard } from '@app/shares/guards/jwt-auth.guard'
+import { RoleGuard } from '@app/shares/guards/role.guard'
+import { RoleEnum, Roles } from '@app/shares'
+import { User } from '@app/queries'
+import { UserScope } from '@app/shares/decorators/user.decorator'
 
-@Controller("comments")
-@ApiTags("comments")
+@Controller('comments')
+@ApiTags('comments')
 export class CommentController {
     constructor(private readonly commentService: CommentService) {}
 
-
-    @Get("/:laptopId")
+    @Get('/:laptopId')
     @HttpCode(HttpStatus.OK)
     @ApiBearerAuth()
     async getAllCommentLaptopByLaptopId(@Param('laptopId') laptopId: number) {
-        const comments = await this.commentService.getAllCommentLaptopByLaptopId(laptopId)
+        const comments =
+            await this.commentService.getAllCommentLaptopByLaptopId(laptopId)
         return comments
     }
 
-
-    @Post("")
+    @Post('')
     @HttpCode(HttpStatus.OK)
-    @UseGuards(JwtAuthGuard, RoleGuard)
-    @Roles(RoleEnum.ADMIN, RoleEnum.USER)
+    @UseGuards(JwtAuthGuard)
+    @ApiBearerAuth()
     async createComment(
         @Body() createCommentDto: CreateCommentDto,
         @UserScope() user: User,
@@ -51,13 +49,12 @@ export class CommentController {
         return createdComment
     }
 
-    @Patch("/:id")
+    @Patch('/:id')
     @HttpCode(HttpStatus.OK)
     @UseGuards(JwtAuthGuard)
-    @UseGuards(JwtAuthGuard, RoleGuard)
-    @Roles(RoleEnum.ADMIN, RoleEnum.USER)
+    @ApiBearerAuth()
     async updateComment(
-        @Param("id") commentId: number,
+        @Param('id') commentId: number,
         @Body() updateCommentDto: UpdateCommentDto,
         @UserScope() user: User,
     ) {
@@ -70,16 +67,16 @@ export class CommentController {
         return comment
     }
 
-    @Delete("/:id")
+    @Delete('/:id')
     @HttpCode(HttpStatus.OK)
     @UseGuards(JwtAuthGuard, RoleGuard)
     @Roles(RoleEnum.ADMIN, RoleEnum.USER)
     async deleteComment(
-        @Param("id") commentId: number,
+        @Param('id') commentId: number,
         @UserScope() user: User,
     ) {
         const userId = user?.id
         await this.commentService.deleteComment(commentId, userId)
-        return "delete comment successfully"
+        return 'delete comment successfully'
     }
 }

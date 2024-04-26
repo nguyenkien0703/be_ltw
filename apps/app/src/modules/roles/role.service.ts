@@ -1,6 +1,6 @@
-import { Injectable } from "@nestjs/common"
-import { Role, RoleRepository } from "@app/queries"
-import { RoleEnum } from "@app/shares"
+import { Injectable } from '@nestjs/common'
+import { Role, RoleRepository } from '@app/queries'
+import { RoleEnum } from '@app/shares'
 
 @Injectable()
 export class RoleService {

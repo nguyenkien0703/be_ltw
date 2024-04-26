@@ -1,10 +1,10 @@
-import { HttpException, HttpStatus, Injectable } from "@nestjs/common"
-import { UserRepository } from "@app/queries"
-import { User } from "@app/queries/entities/user.entity"
-import { SignUpUserDto } from "@app/queries/dtos"
-import { httpErrors } from "@app/shares/exeption-filter"
-import { RoleService } from "../roles/role.service"
-import { RoleEnum } from "@app/shares"
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
+import { UserRepository } from '@app/queries'
+import { User } from '@app/queries/entities/user.entity'
+import { SignUpUserDto } from '@app/queries/dtos'
+import { httpErrors } from '@app/shares/exeption-filter'
+import { RoleService } from '../roles/role.service'
+import { RoleEnum } from '@app/shares'
 
 @Injectable()
 export class UserService {

@@ -1,7 +1,7 @@
-import { TypeOrmExModule } from "@app/shares"
-import { OrderDetailRepository } from "@app/queries/repositories"
-import { Module } from "@nestjs/common"
-import { OrderDetailSeederService } from "@app/queries/seeds/order-detail/order-detail.seeder.service"
+import { TypeOrmExModule } from '@app/shares'
+import { OrderDetailRepository } from '@app/queries/repositories'
+import { Module } from '@nestjs/common'
+import { OrderDetailSeederService } from '@app/queries/seeds/order-detail/order-detail.seeder.service'
 
 const repositories = TypeOrmExModule.forCustomRepository([
     OrderDetailRepository,

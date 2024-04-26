@@ -1,6 +1,6 @@
-import { IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator"
-import { Type } from "class-transformer"
-import { ApiProperty, OmitType } from "@nestjs/swagger"
+import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator'
+import { Type } from 'class-transformer'
+import { ApiProperty, OmitType } from '@nestjs/swagger'
 
 export class CreateEvalutionDto {
     @IsNumber()
@@ -23,5 +23,5 @@ export class CreateEvalutionDto {
 }
 
 export class UpdateEvalutionDto extends OmitType(CreateEvalutionDto, [
-    "laptopId",
+    'laptopId',
 ]) {}

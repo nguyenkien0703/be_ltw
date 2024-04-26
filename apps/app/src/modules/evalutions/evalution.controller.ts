@@ -7,20 +7,20 @@ import {
     Patch,
     Post,
     UseGuards,
-} from "@nestjs/common"
-import { ApiBearerAuth, ApiTags } from "@nestjs/swagger"
-import { EvalutionService } from "./evalution.service"
-import { JwtAuthGuard } from "@app/shares/guards/jwt-auth.guard"
-import { CreateEvalutionDto, UpdateEvalutionDto } from "@app/queries/dtos"
-import { UserScope } from "@app/shares/decorators/user.decorator"
-import { User } from "@app/queries"
+} from '@nestjs/common'
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger'
+import { EvalutionService } from './evalution.service'
+import { JwtAuthGuard } from '@app/shares/guards/jwt-auth.guard'
+import { CreateEvalutionDto, UpdateEvalutionDto } from '@app/queries/dtos'
+import { UserScope } from '@app/shares/decorators/user.decorator'
+import { User } from '@app/queries'
 
-@Controller("evalutions")
-@ApiTags("evalutions")
+@Controller('evalutions')
+@ApiTags('evalutions')
 export class EvalutionController {
     constructor(private readonly evalutionService: EvalutionService) {}
 
-    @Post("")
+    @Post('')
     @UseGuards(JwtAuthGuard)
     @HttpCode(HttpStatus.CREATED)
     @ApiBearerAuth()
@@ -36,12 +36,12 @@ export class EvalutionController {
         return createdEvalution
     }
 
-    @Patch("/:id")
+    @Patch('/:id')
     @UseGuards(JwtAuthGuard)
     @HttpCode(HttpStatus.CREATED)
     @ApiBearerAuth()
     async updateEvalution(
-        @Param("id") evalutionId: number,
+        @Param('id') evalutionId: number,
         @Body() updateEvalutionDto: UpdateEvalutionDto,
         @UserScope() user: User,
     ) {

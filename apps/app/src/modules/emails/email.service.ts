@@ -1,7 +1,7 @@
-import { Injectable } from "@nestjs/common"
-import { MailerService } from "@nestjs-modules/mailer"
-import { User } from "@app/queries"
-import { LaptopResponseData } from "../laptop/laptop.interface"
+import { Injectable } from '@nestjs/common'
+import { MailerService } from '@nestjs-modules/mailer'
+import { User } from '@app/queries'
+import { LaptopResponseData } from '../laptop/laptop.interface'
 
 @Injectable()
 export class EmailService {
@@ -14,8 +14,8 @@ export class EmailService {
     ) {
         await this.mailerService.sendMail({
             to: user.email,
-            subject: "Create a successful order",
-            template: "./send-info-create-order",
+            subject: 'Create a successful order',
+            template: './send-info-create-order',
             context: {
                 username: user.name,
                 totalAmount: totalAmount,

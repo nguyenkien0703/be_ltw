@@ -1,6 +1,6 @@
-import { Module } from "@nestjs/common"
-import { TypeOrmModule } from "@nestjs/typeorm"
-import { ConfigModule, ConfigService } from "@nestjs/config"
+import { Module } from '@nestjs/common'
+import { TypeOrmModule } from '@nestjs/typeorm'
+import { ConfigModule, ConfigService } from '@nestjs/config'
 import {
     Comment,
     Evalution,
@@ -9,7 +9,7 @@ import {
     OrderDetail,
     Role,
     User,
-} from "@app/queries/entities"
+} from '@app/queries/entities'
 
 @Module({
     imports: [
@@ -17,12 +17,12 @@ import {
             imports: [ConfigModule],
             useFactory: (configService: ConfigService) => {
                 return {
-                    type: "mysql",
-                    host: configService.get("database.host"),
-                    port: +configService.get("database.port"),
-                    username: configService.get("database.user"),
-                    password: configService.get("database.pass"),
-                    database: configService.get("database.name"),
+                    type: 'mysql',
+                    host: configService.get('database.host'),
+                    port: +configService.get('database.port'),
+                    username: configService.get('database.user'),
+                    password: configService.get('database.pass'),
+                    database: configService.get('database.name'),
                     entities: [
                         Comment,
                         Evalution,
@@ -32,10 +32,10 @@ import {
                         Role,
                         User,
                     ],
-                    timezone: "Z",
-                    synchronize: configService.get("database.synchronize"),
+                    timezone: 'Z',
+                    synchronize: configService.get('database.synchronize'),
                     debug: false,
-                    logging: configService.get("database.logging"),
+                    logging: configService.get('database.logging'),
                 }
             },
             inject: [ConfigService],

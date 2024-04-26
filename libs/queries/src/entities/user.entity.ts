@@ -5,55 +5,55 @@ import {
     JoinColumn,
     ManyToOne,
     PrimaryGeneratedColumn,
-} from "typeorm"
-import { Role } from "./role.entity"
+} from 'typeorm'
+import { Role } from './role.entity'
 
-@Entity("users")
+@Entity('users')
 export class User extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number
 
     @Column({
-        name: "email",
-        type: "varchar",
+        name: 'email',
+        type: 'varchar',
         length: 255,
         nullable: true,
         unique: true,
     })
     email: string
 
-    @Column({ name: "password", type: "varchar", length: 255, nullable: true })
+    @Column({ name: 'password', type: 'varchar', length: 255, nullable: true })
     password: string
 
     @Column({
-        name: "name",
-        type: "varchar",
+        name: 'name',
+        type: 'varchar',
         length: 255,
         nullable: false,
     })
     name: string
 
     @Column({
-        name: "address",
-        type: "text",
+        name: 'address',
+        type: 'text',
         nullable: true,
     })
     address: string
 
     @Column({
         nullable: true,
-        name: "phone",
-        type: "varchar",
+        name: 'phone',
+        type: 'varchar',
         length: 255,
     })
     phone: string
 
-    @Column({ nullable: false, name: "role_id", type: "integer", width: 11 })
+    @Column({ nullable: false, name: 'role_id', type: 'integer', width: 11 })
     roleId: number
 
     @ManyToOne(() => Role)
     @JoinColumn({
-        name: "role_id",
+        name: 'role_id',
     })
     role: Role
 }

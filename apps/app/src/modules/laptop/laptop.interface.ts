@@ -1,4 +1,4 @@
-import { Laptop } from "@app/queries"
+import { Laptop } from '@app/queries'
 
 export interface LaptopResponseData {
     quantity: number

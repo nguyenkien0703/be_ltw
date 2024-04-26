@@ -1,11 +1,11 @@
-import { HttpException, HttpStatus, Injectable } from "@nestjs/common"
-import { Laptop, Order, OrderRepository } from "@app/queries"
-import { CreateOrderDto } from "@app/queries/dtos/order.dto"
-import { UserService } from "../users/user.service"
-import { OrderDetailService } from "../order-detail/order-detail.service"
-import { EmailService } from "../emails/email.service"
-import { LaptopService } from "../laptop/laptop.service"
-import { LaptopResponseData } from "../laptop/laptop.interface"
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
+import { Laptop, Order, OrderRepository } from '@app/queries'
+import { CreateOrderDto } from '@app/queries/dtos/order.dto'
+import { UserService } from '../users/user.service'
+import { OrderDetailService } from '../order-detail/order-detail.service'
+import { EmailService } from '../emails/email.service'
+import { LaptopService } from '../laptop/laptop.service'
+import { LaptopResponseData } from '../laptop/laptop.interface'
 
 @Injectable()
 export class OrderService {
@@ -26,7 +26,7 @@ export class OrderService {
         const existedUser = await this.userService.getUserById(userId)
         if (!existedUser) {
             throw new HttpException(
-                { message: "user not found" },
+                { message: 'user not found' },
                 HttpStatus.NOT_FOUND,
             )
         }
@@ -40,7 +40,7 @@ export class OrderService {
             )
         } catch (error) {
             throw new HttpException(
-                { message: "created order failed" },
+                { message: 'created order failed' },
                 HttpStatus.INTERNAL_SERVER_ERROR,
             )
         }
@@ -57,7 +57,7 @@ export class OrderService {
             )
         } catch (error) {
             throw new HttpException(
-                { message: "create order detail failed" },
+                { message: 'create order detail failed' },
                 HttpStatus.INTERNAL_SERVER_ERROR,
             )
         }

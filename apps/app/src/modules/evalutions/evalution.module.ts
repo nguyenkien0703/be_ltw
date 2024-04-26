@@ -1,6 +1,6 @@
-import { Module } from "@nestjs/common"
-import { EvalutionController } from "./evalution.controller"
-import { EvalutionService } from "./evalution.service"
+import { Module } from '@nestjs/common'
+import { EvalutionController } from './evalution.controller'
+import { EvalutionService } from './evalution.service'
 
 @Module({
     imports: [],

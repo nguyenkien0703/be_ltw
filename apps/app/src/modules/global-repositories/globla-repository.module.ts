@@ -1,5 +1,5 @@
-import { Global, Module } from "@nestjs/common"
-import { TypeOrmExModule } from "@app/shares"
+import { Global, Module } from '@nestjs/common'
+import { TypeOrmExModule } from '@app/shares'
 import {
     CommentRepository,
     EvalutionRepository,
@@ -8,7 +8,7 @@ import {
     OrderRepository,
     RoleRepository,
     UserRepository,
-} from "@app/queries/repositories"
+} from '@app/queries/repositories'
 
 const commonRepositories = [
     CommentRepository,

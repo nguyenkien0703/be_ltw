@@ -1,6 +1,6 @@
-import { IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator"
-import { Type } from "class-transformer"
-import { ApiProperty } from "@nestjs/swagger"
+import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator'
+import { Type } from 'class-transformer'
+import { ApiProperty } from '@nestjs/swagger'
 
 export class CreateCommentDto {
     // @IsNumber()
@@ -25,7 +25,7 @@ export class CreateCommentDto {
     @IsOptional()
     @ApiProperty({
         required: true,
-        example: "laptop nay ok phet nhi ",
+        example: 'laptop nay ok phet nhi ',
     })
     content: string
 }
@@ -35,7 +35,7 @@ export class UpdateCommentDto {
     @IsOptional()
     @ApiProperty({
         required: true,
-        example: "laptop nay ok phet nhi ",
+        example: 'laptop nay ok phet nhi ',
     })
     content: string
 }

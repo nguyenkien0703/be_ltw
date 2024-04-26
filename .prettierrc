@@ -4,5 +4,6 @@
   "useTabs": false,
   "semi": false,
   "print": true,
+  "singleQuote": true,
   "trailingComma": "all"
 }

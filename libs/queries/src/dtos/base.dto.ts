@@ -1,6 +1,6 @@
-import { IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator"
-import { Type } from "class-transformer"
-import { ApiProperty } from "@nestjs/swagger"
+import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator'
+import { Type } from 'class-transformer'
+import { ApiProperty } from '@nestjs/swagger'
 
 export class GetAllDto {
     @IsNumber()
@@ -23,7 +23,7 @@ export class GetAllDto {
     @IsOptional()
     @ApiProperty({
         required: false,
-        example: "search query",
+        example: 'search query',
     })
     searchQuery?: string
 }

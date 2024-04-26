@@ -3,17 +3,17 @@ import {
     IsOptional,
     IsString,
     ValidateNested,
-} from "class-validator"
-import { ApiProperty } from "@nestjs/swagger"
-import { LaptopDto } from "@app/queries/dtos/laptop.dto"
-import { Type } from "class-transformer"
+} from 'class-validator'
+import { ApiProperty } from '@nestjs/swagger'
+import { LaptopDto } from '@app/queries/dtos/laptop.dto'
+import { Type } from 'class-transformer'
 
 export class CreateOrderDto {
     @IsNotEmpty()
     @IsString()
     @ApiProperty({
         required: true,
-        example: "nga son thanh hoa",
+        example: 'nga son thanh hoa',
     })
     address: string
 
@@ -21,7 +21,7 @@ export class CreateOrderDto {
     @IsString()
     @ApiProperty({
         required: true,
-        example: "Nguyen Van Kien",
+        example: 'Nguyen Van Kien',
     })
     name: string
 
@@ -29,7 +29,7 @@ export class CreateOrderDto {
     @IsString()
     @ApiProperty({
         required: true,
-        example: "0868071819",
+        example: '0868071819',
     })
     phone: string
 

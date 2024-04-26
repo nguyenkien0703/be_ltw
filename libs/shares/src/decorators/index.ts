@@ -1,2 +1,2 @@
-export * from "./custom-repository.decorator"
-export * from "./role.decorator"
+export * from './custom-repository.decorator'
+export * from './role.decorator'

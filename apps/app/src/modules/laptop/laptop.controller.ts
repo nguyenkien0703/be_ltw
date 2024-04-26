@@ -9,24 +9,24 @@ import {
     Post,
     Query,
     UseGuards,
-} from "@nestjs/common"
-import { ApiBearerAuth, ApiTags } from "@nestjs/swagger"
-import { LaptopService } from "./laptop.service"
+} from '@nestjs/common'
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger'
+import { LaptopService } from './laptop.service'
 import {
     CreateLaptopDto,
     GetAllLaptopDto,
     UpdateLaptopDto,
-} from "@app/queries/dtos"
-import { RoleGuard } from "@app/shares/guards/role.guard"
-import { JwtAuthGuard } from "@app/shares/guards/jwt-auth.guard"
-import { RoleEnum, Roles } from "@app/shares"
+} from '@app/queries/dtos'
+import { RoleGuard } from '@app/shares/guards/role.guard'
+import { JwtAuthGuard } from '@app/shares/guards/jwt-auth.guard'
+import { RoleEnum, Roles } from '@app/shares'
 
-@Controller("laptops")
-@ApiTags("laptops")
+@Controller('laptops')
+@ApiTags('laptops')
 export class LaptopController {
     constructor(private readonly laptopService: LaptopService) {}
 
-    @Get("")
+    @Get('')
     @HttpCode(HttpStatus.OK)
     @ApiBearerAuth()
     async getAllLaptop(@Query() getAllLaptopDto: GetAllLaptopDto) {
@@ -34,15 +34,15 @@ export class LaptopController {
         return laptops
     }
 
-    @Get("/:id")
+    @Get('/:id')
     @HttpCode(HttpStatus.OK)
     @ApiBearerAuth()
-    async getLaptopById(@Param("id") laptopId: number) {
+    async getLaptopById(@Param('id') laptopId: number) {
         const laptop = await this.laptopService.getLaptopById(laptopId)
         return laptop
     }
 
-    @Post("")
+    @Post('')
     @HttpCode(HttpStatus.CREATED)
     @UseGuards(JwtAuthGuard, RoleGuard)
     @Roles(RoleEnum.ADMIN)
@@ -53,13 +53,13 @@ export class LaptopController {
         return createdLaptop
     }
 
-    @Patch("/:id")
+    @Patch('/:id')
     @HttpCode(HttpStatus.CREATED)
     @UseGuards(JwtAuthGuard, RoleGuard)
     @Roles(RoleEnum.ADMIN)
     @ApiBearerAuth()
     async updateLaptop(
-        @Param("id") laptopId: number,
+        @Param('id') laptopId: number,
         @Body() updateLaptopDto: UpdateLaptopDto,
     ) {
         const updatedLaptop = await this.laptopService.updateLaptop(

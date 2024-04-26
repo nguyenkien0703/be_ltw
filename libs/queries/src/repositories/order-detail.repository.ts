@@ -1,7 +1,7 @@
-import { Repository } from "typeorm"
-import { OrderDetail } from "@app/queries/entities"
-import { CustomRepository } from "@app/shares"
-import { LaptopDto } from "@app/queries/dtos"
+import { Repository } from 'typeorm'
+import { OrderDetail } from '@app/queries/entities'
+import { CustomRepository } from '@app/shares'
+import { LaptopDto } from '@app/queries/dtos'
 
 @CustomRepository(OrderDetail)
 export class OrderDetailRepository extends Repository<OrderDetail> {

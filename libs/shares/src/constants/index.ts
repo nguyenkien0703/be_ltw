@@ -1,2 +1,2 @@
-export * from "./gender.const"
-export * from "./role.const"
+export * from './gender.const'
+export * from './role.const'

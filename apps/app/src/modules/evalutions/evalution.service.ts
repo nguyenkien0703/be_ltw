@@ -1,6 +1,6 @@
-import { HttpException, HttpStatus, Injectable } from "@nestjs/common"
-import { Evalution, EvalutionRepository } from "@app/queries"
-import { CreateEvalutionDto, UpdateEvalutionDto } from "@app/queries/dtos"
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
+import { Evalution, EvalutionRepository } from '@app/queries'
+import { CreateEvalutionDto, UpdateEvalutionDto } from '@app/queries/dtos'
 
 @Injectable()
 export class EvalutionService {
@@ -28,13 +28,13 @@ export class EvalutionService {
         })
         if (!existedEvalution) {
             throw new HttpException(
-                { message: "evalution not found" },
+                { message: 'evalution not found' },
                 HttpStatus.NOT_FOUND,
             )
         }
         if (userId != existedEvalution.userId) {
             throw new HttpException(
-                { message: "You are not the first person from your family" },
+                { message: 'You are not the first person from your family' },
                 HttpStatus.BAD_REQUEST,
             )
         }

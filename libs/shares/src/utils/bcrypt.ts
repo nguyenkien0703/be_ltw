@@ -1,5 +1,5 @@
-import configuration from "@app/shares/config/configuration"
-import * as bcrypt from "bcrypt"
+import configuration from '@app/shares/config/configuration'
+import * as bcrypt from 'bcrypt'
 export const comparePasswordUser = async (
     plainPassword,
     encryptedPassword,

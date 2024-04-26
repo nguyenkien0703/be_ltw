@@ -1,13 +1,13 @@
-import { HttpException, HttpStatus, Injectable } from "@nestjs/common"
-import { Laptop, LaptopRepository } from "@app/queries"
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
+import { Laptop, LaptopRepository } from '@app/queries'
 import {
     CreateLaptopDto,
     GetAllLaptopDto,
     UpdateLaptopDto,
-} from "@app/queries/dtos"
-import { Pagination } from "nestjs-typeorm-paginate"
-import { httpErrors } from "@app/shares/exeption-filter"
-import e from "express"
+} from '@app/queries/dtos'
+import { Pagination } from 'nestjs-typeorm-paginate'
+import { httpErrors } from '@app/shares/exeption-filter'
+import e from 'express'
 
 @Injectable()
 export class LaptopService {
@@ -22,7 +22,6 @@ export class LaptopService {
     }
 
     async getLaptopById(laptopId: number): Promise<Laptop> {
-        ;``
         const existedLaptop =
             await this.laptopRepository.getLaptopById(laptopId)
         if (!existedLaptop) {
@@ -47,7 +46,7 @@ export class LaptopService {
         let existedLaptop = await this.laptopRepository.getLaptopById(laptopId)
         if (!existedLaptop) {
             throw new HttpException(
-                { message: "laptop khong ton tai" },
+                { message: 'laptop khong ton tai' },
                 HttpStatus.NOT_FOUND,
             )
         }

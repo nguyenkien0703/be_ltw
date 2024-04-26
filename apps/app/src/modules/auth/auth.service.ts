@@ -1,20 +1,20 @@
-import { HttpException, HttpStatus, Injectable } from "@nestjs/common"
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
 import {
     LoginUserByPassword,
     RefreshTokenDto,
     SignUpUserDto,
-} from "@app/queries/dtos"
-import { GenerateAccessJWTData, LoginResponseData } from "./auth.interface"
-import { UserService } from "../users/user.service"
-import { httpErrors } from "@app/shares/exeption-filter"
-import { comparePasswordUser } from "@app/shares/utils/bcrypt"
-import { User } from "@app/queries/entities/user.entity"
+} from '@app/queries/dtos'
+import { GenerateAccessJWTData, LoginResponseData } from './auth.interface'
+import { UserService } from '../users/user.service'
+import { httpErrors } from '@app/shares/exeption-filter'
+import { comparePasswordUser } from '@app/shares/utils/bcrypt'
+import { User } from '@app/queries/entities/user.entity'
 import {
     generateAccessJWT,
     generateRefreshTokenJWT,
     verifyRefreshJWT,
-} from "@app/shares/utils/jwt"
-import { ConfigService } from "@nestjs/config"
+} from '@app/shares/utils/jwt'
+import { ConfigService } from '@nestjs/config'
 
 @Injectable()
 export class AuthService {
@@ -67,13 +67,13 @@ export class AuthService {
 
             accessToken = generateAccessJWT(userData, {
                 expiresIn: Number(
-                    this.configService.get("api.accessTokenExpireInSec"),
+                    this.configService.get('api.accessTokenExpireInSec'),
                 ),
             })
 
             refreshToken = generateRefreshTokenJWT(userData, {
                 expiresIn: Number(
-                    this.configService.get("api.refreshTokenExpireInSec"),
+                    this.configService.get('api.refreshTokenExpireInSec'),
                 ),
             })
         } catch (error) {

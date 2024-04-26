@@ -1,7 +1,7 @@
-import { Repository } from "typeorm"
-import { Evalution } from "@app/queries/entities"
-import { CustomRepository } from "@app/shares"
-import { CreateEvalutionDto, UpdateEvalutionDto } from "@app/queries/dtos"
+import { Repository } from 'typeorm'
+import { Evalution } from '@app/queries/entities'
+import { CustomRepository } from '@app/shares'
+import { CreateEvalutionDto, UpdateEvalutionDto } from '@app/queries/dtos'
 
 @CustomRepository(Evalution)
 export class EvalutionRepository extends Repository<Evalution> {
@@ -23,12 +23,12 @@ export class EvalutionRepository extends Repository<Evalution> {
         updateEvalutionDto: UpdateEvalutionDto,
     ): Promise<Evalution> {
         const { rate } = updateEvalutionDto
-        await this.createQueryBuilder("evalutions")
+        await this.createQueryBuilder('evalutions')
             .update(Evalution)
             .set({
                 rate: rate,
             })
-            .where("evalutions.id = :id", {
+            .where('evalutions.id = :id', {
                 id: evalutionId,
             })
             .execute()

@@ -1,6 +1,6 @@
-import { Injectable } from "@nestjs/common"
-import { OrderDetail, OrderDetailRepository } from "@app/queries"
-import { LaptopDto } from "@app/queries/dtos"
+import { Injectable } from '@nestjs/common'
+import { OrderDetail, OrderDetailRepository } from '@app/queries'
+import { LaptopDto } from '@app/queries/dtos'
 
 @Injectable()
 export class OrderDetailService {

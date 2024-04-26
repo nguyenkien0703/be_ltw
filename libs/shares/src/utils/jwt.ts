@@ -1,5 +1,5 @@
-import configuration from "@app/shares/config/configuration"
-import * as jwt from "jsonwebtoken"
+import configuration from '@app/shares/config/configuration'
+import * as jwt from 'jsonwebtoken'
 export const generateAccessJWT = (data, options = {}) => {
     const key = configuration().api.accessJwtSecretKey
     return jwt.sign(data, key, options)

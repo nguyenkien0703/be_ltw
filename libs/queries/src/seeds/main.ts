@@ -1,6 +1,6 @@
-import { NestFactory } from "@nestjs/core"
-import { Seeder } from "@app/queries/seeds/seeder"
-import { SeederModule } from "@app/queries/seeds/seeder.module"
+import { NestFactory } from '@nestjs/core'
+import { Seeder } from '@app/queries/seeds/seeder'
+import { SeederModule } from '@app/queries/seeds/seeder.module'
 
 async function bootstrap() {
     const appContext = await NestFactory.createApplicationContext(SeederModule)
@@ -13,6 +13,6 @@ bootstrap()
         process.exit(0)
     })
     .catch((error) => {
-        console.error("Error occurred:", error) // In ra lỗi ở đây
+        console.error('Error occurred:', error) // In ra lỗi ở đây
         process.exit(1)
     })

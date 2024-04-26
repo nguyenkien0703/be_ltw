@@ -1,22 +1,22 @@
-import { GetAllDto } from "@app/queries/dtos/base.dto"
-import { IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator"
-import { ApiProperty } from "@nestjs/swagger"
+import { GetAllDto } from '@app/queries/dtos/base.dto'
+import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator'
+import { ApiProperty } from '@nestjs/swagger'
 
 export class GetAllLaptopDto extends GetAllDto {
-    @IsString()
-    @IsOptional()
-    @ApiProperty({
-        required: false,
-        example: "dell",
-    })
-    brandQuery?: string
+    // @IsString()
+    // @IsOptional()
+    // @ApiProperty({
+    //     required: false,
+    //     example: "dell",
+    // })
+    // brandQuery?: string
 }
 export class CreateLaptopDto {
     @IsNotEmpty()
     @IsString()
     @ApiProperty({
         required: true,
-        example: "Laptop Dell Vostro 3480-70183779/70187708",
+        example: 'Laptop Dell Vostro 3480-70183779/70187708',
     })
     name: string
 
@@ -24,7 +24,7 @@ export class CreateLaptopDto {
     @IsString()
     @ApiProperty({
         required: true,
-        example: "Core i5 8265U 1.6 Ghz up to 3.9Ghz-6Mb",
+        example: 'Core i5 8265U 1.6 Ghz up to 3.9Ghz-6Mb',
     })
     cpu: string
 
@@ -32,7 +32,7 @@ export class CreateLaptopDto {
     @IsString()
     @ApiProperty({
         required: true,
-        example: "8Gb",
+        example: '8Gb',
     })
     ram: string
 
@@ -40,7 +40,7 @@ export class CreateLaptopDto {
     @IsString()
     @ApiProperty({
         required: true,
-        example: "14.0Inch",
+        example: '14.0Inch',
     })
     screen: string
 
@@ -48,7 +48,7 @@ export class CreateLaptopDto {
     @IsString()
     @ApiProperty({
         required: true,
-        example: "Black",
+        example: 'Black',
     })
     color: string
 
@@ -56,7 +56,7 @@ export class CreateLaptopDto {
     @IsString()
     @ApiProperty({
         required: true,
-        example: "Windows 10 Home",
+        example: 'Windows 10 Home',
     })
     os: string
 
@@ -64,7 +64,7 @@ export class CreateLaptopDto {
     @IsString()
     @ApiProperty({
         required: true,
-        example: "1Tb/ DVDRW",
+        example: '1Tb/ DVDRW',
     })
     storage: string
 
@@ -72,7 +72,7 @@ export class CreateLaptopDto {
     @IsString()
     @ApiProperty({
         required: true,
-        example: "Intel Graphics HD 620",
+        example: 'Intel Graphics HD 620',
     })
     graphicCard: string
 
@@ -81,7 +81,7 @@ export class CreateLaptopDto {
     @ApiProperty({
         required: true,
         example:
-            "Laptop Dell Vostro 3480 70183779/70187708 mang đến hiệu năng mạnh mẽ và có tính di động cao, rất gọn nhẹ để bạn mang theo bên mình. Nếu bạn đang tìm kiếm một chiếc laptop phục vụ nhu cầu làm việc và độ bền cao thì Dell Vostro 3480 chính là lựa chọn bạn đang cần. ",
+            'Laptop Dell Vostro 3480 70183779/70187708 mang đến hiệu năng mạnh mẽ và có tính di động cao, rất gọn nhẹ để bạn mang theo bên mình. Nếu bạn đang tìm kiếm một chiếc laptop phục vụ nhu cầu làm việc và độ bền cao thì Dell Vostro 3480 chính là lựa chọn bạn đang cần. ',
     })
     description: string
 
@@ -89,7 +89,7 @@ export class CreateLaptopDto {
     @IsString()
     @ApiProperty({
         required: true,
-        example: "4 cell",
+        example: '4 cell',
     })
     pin: string
 
@@ -121,7 +121,7 @@ export class CreateLaptopDto {
     @IsString()
     @ApiProperty({
         required: true,
-        example: "Plastic",
+        example: 'Plastic',
     })
     material: string
 
@@ -129,7 +129,7 @@ export class CreateLaptopDto {
     @IsString()
     @ApiProperty({
         required: true,
-        example: "Dell",
+        example: 'Dell',
     })
     brand: string
 }
@@ -139,7 +139,7 @@ export class UpdateLaptopDto {
     @IsString()
     @ApiProperty({
         required: false,
-        example: "Laptop Dell Vostro 3480-70183779/70187708",
+        example: 'Laptop Dell Vostro 3480-70183779/70187708',
     })
     name: string
 
@@ -147,7 +147,7 @@ export class UpdateLaptopDto {
     @IsString()
     @ApiProperty({
         required: false,
-        example: "Core i5 8265U 1.6 Ghz up to 3.9Ghz-6Mb",
+        example: 'Core i5 8265U 1.6 Ghz up to 3.9Ghz-6Mb',
     })
     cpu: string
 
@@ -155,7 +155,7 @@ export class UpdateLaptopDto {
     @IsString()
     @ApiProperty({
         required: false,
-        example: "8Gb",
+        example: '8Gb',
     })
     ram: string
 
@@ -163,7 +163,7 @@ export class UpdateLaptopDto {
     @IsString()
     @ApiProperty({
         required: false,
-        example: "14.0Inch",
+        example: '14.0Inch',
     })
     screen: string
 
@@ -171,7 +171,7 @@ export class UpdateLaptopDto {
     @IsString()
     @ApiProperty({
         required: false,
-        example: "Black",
+        example: 'Black',
     })
     color: string
 
@@ -179,7 +179,7 @@ export class UpdateLaptopDto {
     @IsString()
     @ApiProperty({
         required: false,
-        example: "Windows 10 Home",
+        example: 'Windows 10 Home',
     })
     os: string
 
@@ -187,7 +187,7 @@ export class UpdateLaptopDto {
     @IsString()
     @ApiProperty({
         required: false,
-        example: "1Tb/ DVDRW",
+        example: '1Tb/ DVDRW',
     })
     storage: string
 
@@ -195,7 +195,7 @@ export class UpdateLaptopDto {
     @IsString()
     @ApiProperty({
         required: false,
-        example: "Intel Graphics HD 620",
+        example: 'Intel Graphics HD 620',
     })
     graphicCard: string
 
@@ -204,7 +204,7 @@ export class UpdateLaptopDto {
     @ApiProperty({
         required: false,
         example:
-            "Laptop Dell Vostro 3480 70183779/70187708 mang đến hiệu năng mạnh mẽ và có tính di động cao, rất gọn nhẹ để bạn mang theo bên mình. Nếu bạn đang tìm kiếm một chiếc laptop phục vụ nhu cầu làm việc và độ bền cao thì Dell Vostro 3480 chính là lựa chọn bạn đang cần. ",
+            'Laptop Dell Vostro 3480 70183779/70187708 mang đến hiệu năng mạnh mẽ và có tính di động cao, rất gọn nhẹ để bạn mang theo bên mình. Nếu bạn đang tìm kiếm một chiếc laptop phục vụ nhu cầu làm việc và độ bền cao thì Dell Vostro 3480 chính là lựa chọn bạn đang cần. ',
     })
     description: string
 
@@ -212,7 +212,7 @@ export class UpdateLaptopDto {
     @IsString()
     @ApiProperty({
         required: false,
-        example: "4 cell",
+        example: '4 cell',
     })
     pin: string
 
@@ -244,7 +244,7 @@ export class UpdateLaptopDto {
     @IsString()
     @ApiProperty({
         required: false,
-        example: "Plastic",
+        example: 'Plastic',
     })
     material: string
 
@@ -252,7 +252,7 @@ export class UpdateLaptopDto {
     @IsString()
     @ApiProperty({
         required: false,
-        example: "Dell",
+        example: 'Dell',
     })
     brand: string
 }

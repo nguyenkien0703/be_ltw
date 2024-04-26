@@ -1,17 +1,17 @@
-import { Repository } from "typeorm"
-import { CustomRepository } from "@app/shares"
-import { Role, User } from "@app/queries/entities"
-import { SignUpUserDto } from "@app/queries/dtos"
-import { hashPassword } from "@app/shares/utils/bcrypt"
+import { Repository } from 'typeorm'
+import { CustomRepository } from '@app/shares'
+import { Role, User } from '@app/queries/entities'
+import { SignUpUserDto } from '@app/queries/dtos'
+import { hashPassword } from '@app/shares/utils/bcrypt'
 
 @CustomRepository(User)
 export class UserRepository extends Repository<User> {
     async getUserByEmail(email: string): Promise<User> {
-        const queryBuilder = this.createQueryBuilder("users").leftJoinAndSelect(
-            "users.role",
-            "role",
+        const queryBuilder = this.createQueryBuilder('users').leftJoinAndSelect(
+            'users.role',
+            'role',
         )
-        queryBuilder.andWhere("users.email = :email", {
+        queryBuilder.andWhere('users.email = :email', {
             email,
         })
         const user = await queryBuilder.getOne()

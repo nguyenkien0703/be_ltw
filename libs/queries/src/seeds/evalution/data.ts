@@ -1,5 +1,5 @@
-import { PartialType } from "@nestjs/swagger"
-import { Evalution } from "@app/queries/entities"
+import { PartialType } from '@nestjs/swagger'
+import { Evalution } from '@app/queries/entities'
 
 export class InsertEvalutionDto extends PartialType(Evalution) {}
 
