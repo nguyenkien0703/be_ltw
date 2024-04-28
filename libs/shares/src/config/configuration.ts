@@ -9,7 +9,7 @@ interface Configuration {
         port: number
         name: string
         user: string
-        pass: string
+        password: string
         type: string
         logging: boolean
         synchronize: boolean
@@ -40,7 +40,7 @@ export default (): Configuration => ({
         port: parseInt(process.env.DB_PORT, 10) || 3306,
         name: process.env.DB_NAME || 'laptop',
         user: process.env.DB_USER || 'root',
-        pass: process.env.DB_PASS || '19091978chinh',
+        password: process.env.DB_PASS || '19091978chinh',
         type: process.env.DB_TYPE || 'mysql',
         logging: process.env.DB_LOGGING === 'true',
         synchronize: process.env.DB_SYNC === 'true',

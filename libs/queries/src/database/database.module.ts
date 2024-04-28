@@ -18,11 +18,11 @@ import {
             useFactory: (configService: ConfigService) => {
                 return {
                     type: 'mysql',
-                    host: configService.get('database.host'),
-                    port: +configService.get('database.port'),
-                    username: configService.get('database.user'),
-                    password: configService.get('database.pass'),
-                    database: configService.get('database.name'),
+                    host: configService.get<string>('database.host'),
+                    port: configService.get<number>('database.port'),
+                    username: configService.get<string>('database.user'),
+                    password: configService.get<string>('database.password'),
+                    database: configService.get<string>('database.name'),
                     entities: [
                         Comment,
                         Evalution,
