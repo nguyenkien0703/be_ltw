@@ -7,6 +7,7 @@ import {
 import { ApiProperty } from '@nestjs/swagger'
 import { LaptopDto } from '@app/queries/dtos/laptop.dto'
 import { Type } from 'class-transformer'
+import { GetAllDto } from '@app/queries/dtos/base.dto'
 
 export class CreateOrderDto {
     @IsNotEmpty()
@@ -41,5 +42,7 @@ export class CreateOrderDto {
         each: true,
     })
     @Type(() => LaptopDto)
-    laptop: LaptopDto[]
+    laptops: LaptopDto[]
 }
+
+export class GetAllOrderDto extends GetAllDto {}

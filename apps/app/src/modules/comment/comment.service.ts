@@ -80,4 +80,17 @@ export class CommentService {
         }
         await this.commentRepository.delete(commentId)
     }
+
+    async getCommentById(commentId: number): Promise<Comment> {
+        const comment = await this.commentRepository.getCommentById(commentId)
+
+        if (!comment) {
+            throw new HttpException(
+                { message: 'Comment not found' },
+                HttpStatus.NOT_FOUND,
+            )
+        }
+
+        return comment
+    }
 }

@@ -24,7 +24,7 @@ import { UserScope } from '@app/shares/decorators/user.decorator'
 export class CommentController {
     constructor(private readonly commentService: CommentService) {}
 
-    @Get('/:laptopId')
+    @Get('/laptops/:laptopId')
     @HttpCode(HttpStatus.OK)
     @ApiBearerAuth()
     async getAllCommentLaptopByLaptopId(@Param('laptopId') laptopId: number) {
@@ -69,8 +69,8 @@ export class CommentController {
 
     @Delete('/:id')
     @HttpCode(HttpStatus.OK)
-    @UseGuards(JwtAuthGuard, RoleGuard)
-    @Roles(RoleEnum.ADMIN, RoleEnum.USER)
+    @UseGuards(JwtAuthGuard)
+    @ApiBearerAuth()
     async deleteComment(
         @Param('id') commentId: number,
         @UserScope() user: User,
@@ -78,5 +78,13 @@ export class CommentController {
         const userId = user?.id
         await this.commentService.deleteComment(commentId, userId)
         return 'delete comment successfully'
+    }
+
+    @Get('/:commentId')
+    @HttpCode(HttpStatus.OK)
+    // @ApiBearerAuth()
+    async getCommentById(@Param('commentId') commentId: number) {
+        const comment = await this.commentService.getCommentById(commentId)
+        return comment
     }
 }

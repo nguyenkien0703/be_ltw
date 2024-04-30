@@ -1,6 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
 import { Laptop, Order, OrderRepository } from '@app/queries'
-import { CreateOrderDto } from '@app/queries/dtos/order.dto'
+import { CreateOrderDto, GetAllOrderDto } from '@app/queries/dtos/order.dto'
 import { UserService } from '../users/user.service'
 import { OrderDetailService } from '../order-detail/order-detail.service'
 import { EmailService } from '../emails/email.service'
@@ -22,7 +22,7 @@ export class OrderService {
         userId: number,
         createOrderDto: CreateOrderDto,
     ): Promise<Order> {
-        const { address, name, laptop, phone } = createOrderDto
+        const { address, name, laptops, phone } = createOrderDto
         const existedUser = await this.userService.getUserById(userId)
         if (!existedUser) {
             throw new HttpException(
@@ -47,7 +47,7 @@ export class OrderService {
 
         try {
             await Promise.all(
-                laptop.map((laptop) =>
+                laptops.map((laptop) =>
                     this.orderDetailService.createOrderDetail(
                         createdOrder.id,
                         userId,
@@ -63,17 +63,17 @@ export class OrderService {
         }
 
         try {
-            const laptops: LaptopResponseData[] = []
+            const laptopResponse: LaptopResponseData[] = []
             let totalAmount = 0
 
             await Promise.all([
-                ...laptop.map(async (laptopItem) => {
+                ...laptops.map(async (laptopItem) => {
                     const existedlaptop =
                         await this.laptopService.getLaptopById(
                             laptopItem.laptopId,
                         )
                     totalAmount += existedlaptop.price * laptopItem.quantity
-                    laptops.push({
+                    laptopResponse.push({
                         laptop: existedlaptop,
                         quantity: laptopItem.quantity,
                     })
@@ -81,7 +81,7 @@ export class OrderService {
             ])
             await this.emailService.sendEmailCreatedOrderSuccessfully(
                 existedUser,
-                laptops,
+                laptopResponse,
                 totalAmount,
             )
         } catch (error) {
@@ -91,5 +91,13 @@ export class OrderService {
             )
         }
         return createdOrder
+    }
+
+    async getAllOrderByUserId(getAllOrderDto: GetAllOrderDto, userId: number) {
+        const orders = await this.orderDetailService.getAllOrderByUserId(
+            getAllOrderDto,
+            userId,
+        )
+        return orders
     }
 }

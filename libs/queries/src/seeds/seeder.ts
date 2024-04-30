@@ -20,13 +20,13 @@ export class Seeder {
     ) {}
     async seed() {
         Logger.log('START_SEEDING_DATA')
-        // await this.seedRole()
-        // await this.seedLaptop()
+        await this.seedRole()
+        await this.seedLaptop()
         await this.seedUser()
-        // await this.seedEvalution()
-        // await this.seedComment()
-        // await this.seedOrder()
-        // await this.seedOrderDetail()
+        await this.seedEvalution()
+        await this.seedComment()
+        await this.seedOrder()
+        await this.seedOrderDetail()
         Logger.log('END_SEEDING_DATA')
     }
 

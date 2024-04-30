@@ -3,6 +3,7 @@ import { Comment } from '@app/queries/entities'
 import { CustomRepository } from '@app/shares'
 import { CreateCommentDto } from '@app/queries/dtos'
 import { Pagination, paginate } from 'nestjs-typeorm-paginate'
+import { HttpException, HttpStatus } from '@nestjs/common'
 
 @CustomRepository(Comment)
 export class CommentRepository extends Repository<Comment> {
@@ -35,5 +36,23 @@ export class CommentRepository extends Repository<Comment> {
                 laptopId: laptopId,
             })
         return paginate(queryBuilder, { page: 1, limit: 100 })
+    }
+
+    async getCommentById(commentId: number): Promise<Comment> {
+        try {
+            const comment = await this.findOne({
+                where: {
+                    id: commentId,
+                },
+            })
+            return comment
+        } catch (error) {
+            throw new HttpException(
+                {
+                    message: error,
+                },
+                HttpStatus.INTERNAL_SERVER_ERROR,
+            )
+        }
     }
 }

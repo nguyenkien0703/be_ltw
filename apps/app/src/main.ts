@@ -1,10 +1,11 @@
-import { NestFactory } from "@nestjs/core"
-import { AppModule } from "./modules/app.module"
-import { ConfigService } from "@nestjs/config"
-import { ResponseTransformInterceptor } from "@app/shares/interceptors/response.interceptor"
-import { Logger, ValidationPipe } from "@nestjs/common"
-import { HttpExceptionFilter } from "@app/shares/exeption-filter"
-import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger"
+import { NestFactory } from '@nestjs/core'
+import { AppModule } from './modules/app.module'
+import { ConfigService } from '@nestjs/config'
+import { ResponseTransformInterceptor } from '@app/shares/interceptors/response.interceptor'
+import { Logger, ValidationPipe } from '@nestjs/common'
+import { HttpExceptionFilter } from '@app/shares/exeption-filter'
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
+import { hashPassword } from '@app/shares/utils/bcrypt'
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule)
@@ -24,8 +25,6 @@ async function bootstrap() {
     // app.useGlobalGuards(new JwtAuthGuard());
     // app.useGlobalGuards(new RoleGuard(new Reflector()));
 
-
-
     const swaggerConfig = new DocumentBuilder()
         .setTitle('Cocokitene API docs')
         .setDescription('Cocokitene API description')
@@ -41,6 +40,7 @@ async function bootstrap() {
     })
 
     const port = config.get('api.port')
+    console.log(await hashPassword('nguyenkien'))
     await app.listen(port)
     Logger.log(`🚀 Api application is running on: ${await app.getUrl()}`)
 }

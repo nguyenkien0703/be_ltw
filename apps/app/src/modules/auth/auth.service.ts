@@ -7,7 +7,7 @@ import {
 import { GenerateAccessJWTData, LoginResponseData } from './auth.interface'
 import { UserService } from '../users/user.service'
 import { httpErrors } from '@app/shares/exeption-filter'
-import { comparePasswordUser } from '@app/shares/utils/bcrypt'
+import { comparePasswordUser, hashPassword } from '@app/shares/utils/bcrypt'
 import { User } from '@app/queries/entities/user.entity'
 import {
     generateAccessJWT,
@@ -35,7 +35,9 @@ export class AuthService {
                 HttpStatus.NOT_FOUND,
             )
         }
-
+        // console.log(email, '---', password)
+        // console.log('user.password---',user.password)
+        // console.log('await hashPassword(password)---',await hashPassword("nguyenkien"))
         const checkPassword = await comparePasswordUser(password, user.password)
         if (!checkPassword) {
             throw new HttpException(

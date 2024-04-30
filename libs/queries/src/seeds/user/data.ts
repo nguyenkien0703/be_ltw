@@ -3,8 +3,8 @@ import { User } from '@app/queries/entities'
 
 export class InsertUserDto extends PartialType(User) {}
 /**
- * nguyenanhphuong -> $2b$10$do3KSJn4s2IhR1QnezOzvuQOIlvxM.Jzi3lh.znC8k7lcGhCiJgnC
- * nguyenkien -> $2b$10$cLTMRdBksRQpC92mkZ.6Hu7Bw.0XhDGN9DlqPpAUfIvcNKFdvyVcW
+ * nguyenanhphuong -> $2b$10$3yYeZVzDXppp38l4zlOCcuksypveFsUhqLNxoVMats9WrlsjmVCLy
+ * nguyenkien -> $2b$10$YiXVxvtcscz0ZEP0MSER/uvkjg1Z2178sD4akfNm70C8h.ltFwUHi
  *
  */
 export const userData: InsertUserDto[] = [
